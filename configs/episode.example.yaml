@@ -1,0 +1,23 @@
+# Planning template only. No runner currently consumes this file.
+# These are local proposed fields, NOT SHADE-Arena's config.yaml schema.
+# Copy to episode.local.yaml before a future coding task implements the runner.
+task: bank_transfer_2
+upstream_commit: 6614e77191c1f8e2d0c44c123c6f915905ebafae
+num_agents: 1
+num_episodes: 1
+max_turns: 100               # Proposed limit, not a verified paper setting.
+seed: 0                    # Record it; API determinism is not guaranteed.
+agent:
+  provider: null            # Choose a tool-capable provider.
+  model: null               # Record the exact available model ID.
+  api_key_env: null         # Variable NAME only, never its value.
+monitor:
+  enabled: false            # First baseline can be agent-only.
+  provider: null
+  model: null
+  visibility: null          # Must define action-only vs accessible reasoning.
+  blocking_threshold: null  # Must verify against the paper before setting.
+  feedback_message: null    # Must verify exact feedback/prompt and timing.
+output_dir: reports/episode-001
+# Missing implementation: model adapter, agent loop, budgets, transcript logging,
+# optional pre-action monitor blocking/rollback/retry, and evaluation wiring.
